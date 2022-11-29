@@ -10,19 +10,19 @@ const Navigation = () => {
       id: 1,
       title: "Report",
       component: <TopicIcon style={{ fontSize: "2rem" }} />,
-      path: "/expenset/report",
+      path: "/test/report",
     },
     {
       id: 2,
       title: "Add Expense",
       component: <PostAddIcon style={{ fontSize: "2rem" }} />,
-      path: "/expenset/addexpense",
+      path: "/test/addexpense",
     },
     {
       id: 3,
       title: "Home",
       component: <HomeIcon style={{ fontSize: "2rem" }} />,
-      path: "/expenset/",
+      path: "/test/",
     },
   ];
 

@@ -79,9 +79,9 @@ function App() {
       className="app relative flex justify-between flex-col select-none"
     >
       <Routes>
-        <Route path="/expenset/" element={<HomeScreen />} />
+        <Route path="/test/" element={<HomeScreen />} />
         <Route
-          path="/expenset/addexpense"
+          path="/test/addexpense"
           element={
             <>
               <Expense item={filteredResults} remove={remove} />
@@ -90,7 +90,7 @@ function App() {
           }
         />
         <Route
-          path="/expenset/report"
+          path="/test/report"
           element={
             <BalanceSheet
               item={filteredResults}
