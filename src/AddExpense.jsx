@@ -27,7 +27,7 @@ const AddExpense = ({ Add }) => {
             onChange={(e) => setdes(e.target.value)}
           />
           <input
-            className="border-none outline-none text-base px-2"
+            className="border-none outline-none text-base px-2 py-1"
             value={amount}
             onChange={(e) => setamount(e.target.value)}
             type="number"
@@ -37,7 +37,7 @@ const AddExpense = ({ Add }) => {
           />
           <button
             onClick={submit}
-            className="px-2 py-2 border-none outline-none text-sm text-white bg-blue-400 rounded-sm"
+            className="px-2 py-2 border-none outline-none text-base text-white bg-blue-400 rounded-sm"
           >
             Add Expense
           </button>

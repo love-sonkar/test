@@ -27,7 +27,7 @@ const Navigation = () => {
   ];
 
   return (
-    <div className="bg-airbnb-pink w-full flex items-center justify-between px-4 py-1 ">
+    <div className="bg-airbnb-pink w-full flex items-center justify-between px-8 pt-2 pb-4 ">
       {navigate.map((item) => {
         return (
           <Link

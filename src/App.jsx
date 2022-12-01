@@ -4,12 +4,9 @@ import BalanceSheet from "./BalanceSheet";
 import Expense from "./Expense";
 import HomeScreen from "./HomeScreen";
 import Navigation from "./Navigation";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
-  // localStorage.clear();
-  const [searchInput, setSearchInput] = useState("");
-
   let expense;
   if (localStorage.getItem("expense") === null) {
     expense = [];
@@ -32,46 +29,21 @@ function App() {
       amount: amount,
     };
     setitemexpense([addnewitem, ...itemexpense]);
-    setFilteredResults([addnewitem, ...filteredResults]);
   };
 
   const remove = (items) => {
-    setFilteredResults(
-      filteredResults.filter((e) => {
-        return e != items;
-      })
-    );
     setitemexpense(
       itemexpense.filter((e) => {
         return e != items;
       })
     );
 
-    localStorage.setItem("expense", JSON.stringify(filteredResults));
+    localStorage.setItem("expense", JSON.stringify(itemexpense));
   };
-
-  const search = (searchValue) => {
-    setSearchInput(searchValue.trim());
-    if (searchInput === "") {
-      setFilteredResults(itemexpense);
-    } else {
-      const filteredData = itemexpense.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      console.log(filteredData);
-      setFilteredResults(filteredData);
-    }
-  };
-
-  const [filteredResults, setFilteredResults] = useState(expense);
-  const [itemexpense, setitemexpense] = useState(filteredResults);
-
+  const [itemexpense, setitemexpense] = useState(expense);
   useEffect(() => {
-    localStorage.setItem("expense", JSON.stringify(filteredResults));
-  }, [filteredResults]);
+    return localStorage.setItem("expense", JSON.stringify(itemexpense));
+  }, [itemexpense]);
 
   return (
     <div
@@ -84,21 +56,16 @@ function App() {
           path="/test/addexpense"
           element={
             <>
-              <Expense item={filteredResults} remove={remove} />
+              <Expense item={itemexpense} remove={remove} />
               <AddExpense Add={AddItem} />
             </>
           }
         />
         <Route
           path="/test/report"
-          element={
-            <BalanceSheet
-              item={filteredResults}
-              remove={remove}
-              search={search}
-            />
-          }
+          element={<BalanceSheet item={itemexpense} remove={remove} />}
         />
+        <Route path="*" element={<Navigate to="/test/" />} />
       </Routes>
       <Navigation />
     </div>
