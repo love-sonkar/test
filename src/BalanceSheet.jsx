@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Expense from "./Expense";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -9,6 +9,10 @@ const BalanceSheet = ({ item, remove }) => {
       data.des.toLowerCase().includes(query.toLowerCase())
     );
   };
+
+  useEffect(() => {
+    document.title = "Expense Tracker | Reports";
+  }, []);
 
   return (
     <div className="h-[87%]">
@@ -25,7 +29,7 @@ const BalanceSheet = ({ item, remove }) => {
           <SearchIcon style={{ color: "white" }} />
         </button>
       </div>
-      <Expense item={search(item)} remove={remove} />
+      <Expense item={search(item)} remove={remove} Reports />
     </div>
   );
 };

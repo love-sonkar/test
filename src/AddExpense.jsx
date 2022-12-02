@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 const AddExpense = ({ Add }) => {
   const [des, setdes] = useState("");
   const [amount, setamount] = useState("");
@@ -13,6 +12,10 @@ const AddExpense = ({ Add }) => {
     setamount("");
     setdes("");
   };
+
+  useEffect(() => {
+    document.title = "Expense Tracker | Add Expense";
+  }, []);
 
   return (
     <>

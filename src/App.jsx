@@ -29,6 +29,7 @@ function App() {
       amount: amount,
     };
     setitemexpense([addnewitem, ...itemexpense]);
+    console.log(addnewitem);
   };
 
   const remove = (items) => {
@@ -51,7 +52,7 @@ function App() {
       className="app relative flex justify-between flex-col select-none"
     >
       <Routes>
-        <Route path="/test/" element={<HomeScreen />} />
+        <Route path="/test/" element={<HomeScreen item={itemexpense} />} />
         <Route
           path="/test/addexpense"
           element={

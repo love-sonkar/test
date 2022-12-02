@@ -9,11 +9,7 @@
   }
 }
 
-html {
-  height: -webkit-fill-available;
-}
-
 .app {
-  max-height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
   height: 100vh;
 }
