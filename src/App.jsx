@@ -46,6 +46,17 @@ function App() {
     return localStorage.setItem("expense", JSON.stringify(itemexpense));
   }, [itemexpense]);
 
+  const setHeight = () => {
+    document.getElementById("app").style.minHeight = window.innerHeight + "px";
+  };
+
+  let deviceWidth = window.matchMedia("(max-width: 1024px)");
+
+  if (deviceWidth.matches) {
+    window.addEventListener("resize", setHeight);
+    setHeight();
+  }
+
   return (
     <div
       id="app"
