@@ -9,7 +9,16 @@
   }
 }
 
+body {
+  height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+#root {
+  height: 100%;
+  position: relative;
+}
+
 .app {
   min-height: -webkit-fill-available;
-  height: 100vh;
 }
