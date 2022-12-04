@@ -47,8 +47,8 @@ function App() {
   }, [itemexpense]);
 
   return (
-    <div id="app" className="app height-full relative select-none">
-      <div className="overflow-scroll scrollbar-hide pb-[86px]">
+    <div id="app" className="app h-full relative select-none">
+      <div className=" overflow-scroll scrollbar-hide pb-[86px]">
         <Routes>
           <Route path="/test/" element={<HomeScreen />} />
           <Route

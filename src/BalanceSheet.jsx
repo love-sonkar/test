@@ -19,6 +19,7 @@ const BalanceSheet = ({ item, remove }) => {
       <div className="px-2 py-4 flex align-items-center w-full bg-white">
         <input
           type="search"
+          autoComplete="off"
           className="border outline-none py-1 px-2 text-base w-full"
           name="search"
           placeholder="Search Expense..."
