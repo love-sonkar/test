@@ -19,7 +19,7 @@ const AddExpense = ({ Add }) => {
 
   return (
     <>
-      <div className="px-2">
+      <div className="px-2 w-full bg-white">
         <div className="flex flex-col gap-2 my-2 border">
           <textarea
             className=" px-2 py-3 scrollbar-hide resize-none text-base outline-none border-b"

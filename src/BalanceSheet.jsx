@@ -15,8 +15,8 @@ const BalanceSheet = ({ item, remove }) => {
   }, []);
 
   return (
-    <div className="h-[87%]">
-      <div className="px-2 py-4 flex align-items-center">
+    <div className="">
+      <div className="px-2 py-4 flex align-items-center w-full bg-white">
         <input
           type="search"
           className="border outline-none py-1 px-2 text-base w-full"

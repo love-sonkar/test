@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from "react";
 
-const HomeScreen = ({ item }) => {
-  let arry = item.map((items) => items.amount);
-  const [data, setdata] = useState([]);
-  console.log(arry);
-
-  const sum = (expense) => {
-    return expense.reduce((acc, number) => {
-      return number + acc;
-    }, 0);
-  };
+const HomeScreen = () => {
+  let item = JSON.parse(localStorage.getItem("expense"));
+  // let data = item.map((i) => i.amount);
+  // console.log(data);
+  // console.log(TotalExpense.map((i) => i.amount));
+  const [TotalExpense, setTotalExpense] = useState("");
+  // console.log("total ", TotalExpense);
 
   useEffect(() => {
-    setdata(sum(arry));
     document.title = "Expense Tracker | Home";
-  }, [data]);
-  console.log(data);
-  console.log(sum(arry));
+    return localStorage.setItem("expense", JSON.stringify(item));
+  }, [item]);
+
+  // const summ = (it) => {
+  //   const data = it
+  //     .map((items) => items.amount)
+  //     .reduce((prev, curr) => prev + curr, 0);
+  //   return data;
+  // };
+
+  const data = item.map((i) => i.amount).reduce((prev, curr) => prev + curr, 0);
 
   return (
     <div className="">
       home
-      <h1>hi{data}</h1>
+      <h1>{data}</h1>
     </div>
   );
 };

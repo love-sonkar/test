@@ -47,28 +47,31 @@ function App() {
   }, [itemexpense]);
 
   return (
-    <div
-      id="app"
-      className="app relative flex justify-between flex-col select-none"
-    >
-      <Routes>
-        <Route path="/test/" element={<HomeScreen item={itemexpense} />} />
-        <Route
-          path="/test/addexpense"
-          element={
-            <>
-              <Expense item={itemexpense} remove={remove} />
-              <AddExpense Add={AddItem} />
-            </>
-          }
-        />
-        <Route
-          path="/test/report"
-          element={<BalanceSheet item={itemexpense} remove={remove} />}
-        />
-        <Route path="*" element={<Navigate to="/test/" />} />
-      </Routes>
-      <Navigation />
+    <div id="app" className="app height-full relative select-none">
+      <div className="overflow-scroll scrollbar-hide pb-[86px]">
+        <Routes>
+          <Route path="/test/" element={<HomeScreen />} />
+          <Route
+            path="/test/addexpense"
+            element={
+              <div className="h-full relative pb-[150px]">
+                <Expense item={itemexpense} remove={remove} />
+                <div className="fixed w-full mb-[80px] bottom-0">
+                  <AddExpense Add={AddItem} />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path="/test/report"
+            element={<BalanceSheet item={itemexpense} remove={remove} />}
+          />
+          <Route path="*" element={<Navigate to="/test/" />} />
+        </Routes>
+      </div>
+      <div className="fixed bottom-0 w-full">
+        <Navigation />
+      </div>
     </div>
   );
 }
