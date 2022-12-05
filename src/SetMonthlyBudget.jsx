@@ -13,13 +13,12 @@ const SetMonthlyBudget = ({ AddBudget }) => {
 
   return (
     <div className="">
-      <h1 className="text-center text-xl capitalize py-3">
-        Set your Monthly budget
-      </h1>
+      <h1 className=" text-xl capitalize py-2">Set your Monthly budget</h1>
       <div className="box flex">
         <input
-          className="border text-base py-1 px-2 outline-none w-full "
+          className="border text-lg py-2 px-2 outline-none w-full "
           type="number"
+          placeholder="Enter Your Budget..."
           value={Input}
           onChange={(e) => setInput(e.target.value)}
         />
